@@ -1,0 +1,17 @@
+local player = game.Players.LocalPlayer
+local client = player -- asumiendo que así estás usando "client"
+
+-- War Drums
+task.spawn(function()
+    game:GetService("ReplicatedStorage").Remotes.war_Drums_remote:FireServer(true)
+    task.wait(20)
+end)
+
+-- Sun Immunity
+-- Asegurate de definir el valor antes:
+local Value = true
+client.PlayerScripts.Small_Scripts.Gameplay.Sun_Damage.Disabled = Value
+
+-- Infinite Stamina
+local playerValues = game:GetService("ReplicatedStorage").PlayerValues[player.Name]
+playerValues.Stamina.MinValue = playerValues.Stamina.MaxValue
