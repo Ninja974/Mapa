@@ -3,9 +3,16 @@ local client = player -- asumiendo que así estás usando "client"
 
 -- War Drums
 task.spawn(function()
-    game:GetService("ReplicatedStorage").Remotes.war_Drums_remote:FireServer(true)
-    task.wait(20)
-end)
+                while options["tWarDrum"].Value do
+                    game:GetService("ReplicatedStorage").Remotes.war_Drums_remote:FireServer(true)
+                    task.wait(20)
+                end
+            end)
+        end
+    end
+})
+options["tWarDrum"]:SetValue(true)
+
 
 -- Sun Immunity
 -- Asegurate de definir el valor antes:
